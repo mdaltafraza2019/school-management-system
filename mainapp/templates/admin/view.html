@@ -1,0 +1,91 @@
+{%extends 'admin/adminbase.html'%}
+{%block 'admin-content'%}
+<div class="row">
+   <div class="col-lg-8 col-md-8 col-4">
+
+      <h2>Details</h2>
+      <table class="table table-striped " colspan="1">
+         <tr>
+            <th>id</th>
+            <td>{{students.id}}</td>
+         </tr>
+         <tr>
+            <th>name</th>
+            <td>{{students.name}}</td>
+         </tr>
+         <tr>
+            <th>father_name</th>
+            <td>{{students.father_name}}</td>
+         </tr>
+         <tr>
+            <th>class</th>
+            <td>{{students.className}}</td>
+         </tr>
+         <tr>
+            <th>gender</th>
+            <td>{{students.get_gender_display|capfirst}}</td>
+         </tr>
+         <tr>
+            <th>email</th>
+            <td>{{students.email}}</td>
+         </tr>
+
+         <tr aria-colspan="2d">
+            <th>Adress</th>
+            <td>city-{{students.city}}
+               state-{{students.state}} country-{{students.nationalitly}} pin-{{students.pin}}</td>
+         </tr>
+         <tr>
+            <th>IsApproved</th>
+            <td>{{students.isApproved}}</td>
+         </tr>
+
+
+
+
+      </table>
+   </div>
+   <div class="col-lg-3 col-md-3 col-4">
+      <table class="table m-auto">
+         <tr>
+            {% if students.isApproved == False%}
+            <td><a href="{%url 'approve' students.id%}" class="btn bg-success ">Approve</a></td>{%endif%}
+            <td><a href="" class="btn bg-danger">delete</a></td>
+            <td><a href="{%url 'editstudent' students.id%}" class="btn bg-primary">Edit</a></td>
+         </tr>
+         <tr>
+            {%if students.image%}
+            <td><img src="{{students.image.url}}" height="280px" width="200px" alt="img"></td>{%endif%}
+
+         </tr>
+      </table>
+   </div>
+</div>
+{%if students.isApproved == True%}
+<div class="row">
+   <div class="col-lg-12">
+      <h1>My Payments </h1>
+      <table class="table table-responsive table-striped">
+         <tr>
+            <th>id</th>
+            <th>month</th>
+            <th>amount</th>
+            <th>status</th>
+            <th>date of payment</th>
+            <th>action</th>
+         </tr>
+         {%for payment in payment %}
+         <tr>
+            <td class="p-2">{{ payment.id }}</td>
+            <td class="p-2">{{ payment.month }}</td>
+            <td class="p-2">{{ payment.amount }}</td>
+            <td class="p-2">{{ payment.status }}</td>
+            <td class="p-2">{{ payment.date_of_payment }}</td>
+            <td class="p-2">
+            </td>
+         </tr>
+         {%endfor%}
+   </div>
+</div>
+{%endif%}
+{%endblock%}

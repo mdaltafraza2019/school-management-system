@@ -1,0 +1,16 @@
+{%extends 'home.html'%}
+{%load crispy_forms_tags%}
+
+{%block body%}
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h2>update student</h2>
+        <form action="" method="post" enctype="multipart/form-data" class="form form-control">
+        {%csrf_token%}
+        {{form|crispy}}
+        <input type="submit" value="update Record" class="btn w-100 bg-success ">
+    </form></div>
+    <div class="col-lg-3"></div>
+</div>
+{%endblock%}

@@ -1,0 +1,20 @@
+{%extends 'home.html'%}
+{%block body%}
+<div class="row ">
+    <div class="col-lg-3 ">
+        <a href="{%url 'dashboard'%}" class="btn w-100 bg-dark text-light m-1 ">Dashboard</a>
+        <a href="{%url 'manageaddmission'%}" class="btn w-100 p-2 bg-dark-subtle m-1">manageAdmission</a>
+        <a href="{%url 'managestudent'%}" class="btn w-100 p-2 bg-dark-subtle m-1">manageStudent</a>
+        <a href="{%url 'manageclasses'%}" class="btn w-100 p-2 bg-dark-subtle m-1">manageclasses</a>
+        <a href="" class="btn w-100 p-2 bg-dark-subtle m-1">View</a>
+        <a href="" class="btn w-100 p-2 bg-dark-subtle m-1">ManageStaff</a>
+        <a href="" class="btn w-100 p-2 bg-dark-subtle m-1">Dashboard</a>
+        <a href="" class="btn w-100 p-2 bg-dark-subtle m-1">Dashboard</a>
+       
+    </div>
+    <div class="col-lg-9">
+        {%block 'admin-content'%}
+        {%endblock%}
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,39 @@
+{%extends 'admin/adminbase.html'%}
+{%load crispy_forms_tags%}
+{%load static%}
+{%block title%}<title>Collage | Login</title>{%endblock%}
+{%block 'admin-content'%}
+<div class="row">
+    <div class="col-6">
+        <table class="table table-striped table-responsive">
+           <h2>manageclasses</h2>
+            <tr>
+                <th>id</th>
+                <th>class name</th>
+                <th>action</th>
+            </tr>
+            {% for i in classes%}
+            <tr>
+                <td>{{i.id}}</td>
+               <td>{{i.class_name}}</td>
+                <td class="btn bg-danger "><a   href="" class="text-light btn">Delete</a></td>
+                <td class="btn bg-primary m-1"><a  href="" class="text-light btn">Edit</a</td>
+                <td class="btn bg-success m-1"><a href="{%url 'viewstudent_classby' i.class_name%}"class="text-light  btn">view</a></td>
+                
+               
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+    <div class="col-6">
+        class
+        <form action="">
+           {{form}}
+        </form>
+    </div>
+    {%for i in classes%}
+    {{i}}
+    {%endfor%}
+
+</div>
+{%endblock%}

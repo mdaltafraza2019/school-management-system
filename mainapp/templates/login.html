@@ -1,0 +1,21 @@
+{%extends 'home.html'%}
+{%load crispy_forms_tags%}
+{%load static%}
+{%block title%}<title>Collage | Login</title>{%endblock%}
+{%block body%}
+<div class="row">
+    <div class="col-lg-3"></div> 
+    <div class="col-lg-6  m-auto">
+        {%for i in messages%}
+        {{i.messages}}
+        {%endfor%}
+        <h2 class="mt-2">login here</h2>
+        <form action="" method="post" class="form form control w-75 bg-danger-subtle">
+            {%csrf_token%}
+            {{login |crispy}}
+            <button type="submit" class="w-100 mt-3 p-2 bg-success">Login</button>
+        </form>
+    </div> 
+    <div class="col-lg-3"></div> 
+</div>
+{%endblock%}
